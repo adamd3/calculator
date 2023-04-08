@@ -14,5 +14,11 @@ function divide(a, b) {
   return a / b;
 }
 
+let operator = null;
+let firstNum = null;
+let secondNum = null;
 
+function operate(operator, firstNum, secondNum) {
+  return operator(firstNum, secondNum);
+}
 
