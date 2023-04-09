@@ -36,16 +36,16 @@ function evaluateExpression() {
   let result;
   switch (operator) {
     case '+':
-      result = num1 + num2;
+      result = add(num1, num2);
       break;
     case '-':
-      result = num1 - num2;
+      result = subtract(num1, num2);
       break;
     case '*':
-      result = num1 * num2;
+      result = multiply(num1, num2);
       break;
     case '/':
-      result = num1 / num2;
+      result = divide(num1, num2);
       break;
     default:
       return;
