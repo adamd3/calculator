@@ -15,9 +15,9 @@
 }
 
 .button {
-  background-color: #f2f2f2;
+  background-color: #3b3b3b;
   border: none;
-  color: #333;
+  color: #ffffff;
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
@@ -29,4 +29,33 @@
 .button:hover {
   background-color: #d9d9d9;
   cursor: pointer;
+}
+
+
+/* Styles for different button types */
+.button--operator, .button--function {
+  background-color: #969696;
+  color: #fff;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.button--operator:hover {
+  background-color: #e68a00;
+}
+
+.button--zero {
+  width: 150px;
+}
+
+.button--function:hover {
+  background-color: #d9d9d9;
+}
+
+.button--equal {
+  background-color: #ff8c00;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.button--equal:hover {
+  background-color: #e68a00;
 }
