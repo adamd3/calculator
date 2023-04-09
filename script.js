@@ -30,20 +30,43 @@ function clearScreen() {
   updateScreen();
 }
 
-function operate(operator, firstNum, secondNum) {
-  return operator(firstNum, secondNum);
+function evaluateExpression() {
+  const num1 = parseFloat(previousOperand);
+  const num2 = parseFloat(currentOperand);
+  let result;
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    case '/':
+      result = num1 / num2;
+      break;
+    default:
+      return;
+  }
+  currentOperand = result.toString();
+  operator = '';
+  previousOperand = '';
+  updateScreen();
 }
-
+  
 
 buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    if (button.id == 'clear') {
-      clearScreen();
-    } else if (button.id == 'equals') {
-      display.textContent = operate(operator, firstNum, secondNum);
-    } else {
-      display.textContent += button.textContent;
-    }
+  button.addEventListener('click', e => {
+    const { target } = e;
+    switch (target.dataset.type) {
+      case 'clear':
+        clearScreen();
+        break;
+      case 'equals':
+        evaluateExpression();
+        break;
   });
 });
 
