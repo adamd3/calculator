@@ -26,10 +26,10 @@ function divide(a, b) {
 }
 
 function clearScreen() {
-  currentOperand = '0';
+  currentOperand = '';
   previousOperand = '';
   operator = '';
-  updateScreen();
+  screen.textContent = '0';
 }
 
 function updateScreen() {
