@@ -63,7 +63,7 @@ function evaluateExpression() {
   
 
 buttons.forEach((button) => {
-  button.addEventListener('click', e => {
+  buttons.addEventListener('click', e => {
     const { target } = e;
     switch (target.dataset.type) {
       case 'clear':
@@ -72,6 +72,7 @@ buttons.forEach((button) => {
       case 'equals':
         evaluateExpression();
         break;
+    }
   });
 });
 
@@ -95,6 +96,3 @@ operators.forEach((operator) => {
     }
   });
 });
-
-// display.textContent = operate(operator, firstNum, secondNum);
-
