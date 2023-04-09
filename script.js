@@ -23,6 +23,12 @@ function divide(a, b) {
   return a / b;
 }
 
+function clearScreen() {
+  currentOperand = '';
+  previousOperand = '';
+  operator = '';
+  updateScreen();
+}
 
 function operate(operator, firstNum, secondNum) {
   return operator(firstNum, secondNum);
@@ -32,7 +38,7 @@ function operate(operator, firstNum, secondNum) {
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     if (button.id == 'clear') {
-      display.textContent = '';
+      clearScreen();
     } else if (button.id == 'equals') {
       display.textContent = operate(operator, firstNum, secondNum);
     } else {
