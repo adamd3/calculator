@@ -2,10 +2,12 @@ let currentOperand = '';
 let previousOperand = '';
 let operator = '';
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.button');
 const operators = document.querySelectorAll('button--operator');
 const screen = document.querySelector('.screen__output--current');
 const previousScreen = document.querySelector('.screen__output--previous');
+
+console.log(buttons);
 
 function add(a, b) {
   return a + b;
@@ -33,6 +35,18 @@ function clearScreen() {
 function updateScreen() {
   screen.textContent = currentOperand;
   previousScreen.textContent = `${previousOperand} ${operator}`;
+}
+
+
+function deleteDigit() {
+  currentOperand = currentOperand.slice(0, -1);
+  updateScreen();
+}
+
+function appendDigit(digit) {
+  if (digit === '.' && currentOperand.includes('.')) return;
+  currentOperand += digit;
+  updateScreen();
 }
 
 function evaluateExpression() {
@@ -63,7 +77,7 @@ function evaluateExpression() {
   
 
 buttons.forEach((button) => {
-  buttons.addEventListener('click', e => {
+  button.addEventListener('click', e => {
     const { target } = e;
     switch (target.dataset.type) {
       case 'clear':
@@ -72,6 +86,13 @@ buttons.forEach((button) => {
       case 'equals':
         evaluateExpression();
         break;
+      case 'delete':
+        deleteDigit();
+        break;
+      case 'number':
+        appendDigit(target.dataset.value);
+        break;
+    
     }
   });
 });
