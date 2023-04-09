@@ -1,4 +1,3 @@
-let operator = null;
 let currentOperand = '';
 let previousOperand = '';
 let operator = '';
