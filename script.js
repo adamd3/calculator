@@ -38,14 +38,14 @@ function updateScreen() {
 }
 
 function deleteDigit() {
-  currentOperand = currentOperand.slice(0, -1);
+  currentOperand = currentOperand.toString().slice(0, -1);
   if (!currentOperand) currentOperand = '0';
   updateScreen();
 }
 
 function appendDigit(digit) {
   if (digit === '.' && currentOperand.includes('.')) return;
-  currentOperand += digit;
+  currentOperand = currentOperand.toString() + digit.toString();
   updateScreen();
 }
 
@@ -61,6 +61,7 @@ function applyOperator(op) {
 function evaluateExpression() {
   const num1 = parseFloat(previousOperand);
   const num2 = parseFloat(currentOperand);
+  if (isNaN(num1) || isNaN(num2)) return;
   let result;
   switch (operator) {
     case '+':
@@ -83,7 +84,16 @@ function evaluateExpression() {
   previousOperand = '';
   updateScreen();
 }
-  
+
+document.addEventListener('keydown', e => {
+  let key = e.key;
+  if (key === 'enter') key = '=';
+  if (key === 'Backspace' || key === "Delete") key = 'del';
+  const button = document.querySelector(`button[data-value="${key}"]`);
+  if (button) {
+    button.click();
+  }
+});
 
 buttons.forEach((button) => {
   button.addEventListener('click', e => {
