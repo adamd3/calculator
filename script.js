@@ -1,11 +1,12 @@
 let operator = null;
-let firstNum = null;
-let secondNum = null;
-let displayVal = null;
+let currentOperand = '';
+let previousOperand = '';
+let operator = '';
 
 const buttons = document.querySelectorAll('button');
 const operators = document.querySelectorAll('button--operator');
-const display = document.getElementById('display');
+const screen = document.querySelector('.screen__output--current');
+const previousScreen = document.querySelector('.screen__output--previous');
 
 function add(a, b) {
   return a + b;
