@@ -39,6 +39,7 @@ function updateScreen() {
 
 function deleteDigit() {
   currentOperand = currentOperand.slice(0, -1);
+  if (!currentOperand) currentOperand = '0';
   updateScreen();
 }
 
