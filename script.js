@@ -26,7 +26,7 @@ function divide(a, b) {
 }
 
 function clearScreen() {
-  currentOperand = '';
+  currentOperand = '0';
   previousOperand = '';
   operator = '';
   updateScreen();
@@ -46,6 +46,15 @@ function deleteDigit() {
 function appendDigit(digit) {
   if (digit === '.' && currentOperand.includes('.')) return;
   currentOperand += digit;
+  updateScreen();
+}
+
+function applyOperator(op) {
+  if (!currentOperand) return;
+  if (operator) evaluateExpression();
+  operator = op;
+  previousOperand = currentOperand;
+  currentOperand = '';
   updateScreen();
 }
 
@@ -89,31 +98,33 @@ buttons.forEach((button) => {
       case 'delete':
         deleteDigit();
         break;
+      case 'operator':
+        applyOperator(target.dataset.value);
+        break;
       case 'number':
         appendDigit(target.dataset.value);
         break;
-    
     }
   });
 });
 
-operators.forEach((operator) => {
-  operator.addEventListener('click', () => {
-    firstNum = display.textContent;
-    display.textContent = '';
-    switch (operator.id) {
-      case 'add':
-        operator = add;
-        break;
-      case 'subtract':
-        operator = subtract;
-        break;
-      case 'multiply':
-        operator = multiply;
-        break;
-      case 'divide':
-        operator = divide;
-        break;
-    }
-  });
-});
+// operators.forEach((operator) => {
+//   operator.addEventListener('click', () => {
+//     firstNum = display.textContent;
+//     display.textContent = '';
+//     switch (operator.id) {
+//       case 'add':
+//         operator = add;
+//         break;
+//       case 'subtract':
+//         operator = subtract;
+//         break;
+//       case 'multiply':
+//         operator = multiply;
+//         break;
+//       case 'divide':
+//         operator = divide;
+//         break;
+//     }
+//   });
+// });
