@@ -7,8 +7,6 @@ const operators = document.querySelectorAll('button--operator');
 const screen = document.querySelector('.screen__output--current');
 const previousScreen = document.querySelector('.screen__output--previous');
 
-console.log(buttons);
-
 function add(a, b) {
   return a + b;
 }
@@ -87,7 +85,7 @@ function evaluateExpression() {
 
 document.addEventListener('keydown', e => {
   let key = e.key;
-  if (key === 'enter') key = '=';
+  if (key === 'Enter') key = '=';
   if (key === 'Backspace' || key === "Delete") key = 'del';
   const button = document.querySelector(`button[data-value="${key}"]`);
   if (button) {
