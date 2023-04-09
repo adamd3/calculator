@@ -30,6 +30,11 @@ function clearScreen() {
   updateScreen();
 }
 
+function updateScreen() {
+  screen.textContent = currentOperand;
+  previousScreen.textContent = `${previousOperand} ${operator}`;
+}
+
 function evaluateExpression() {
   const num1 = parseFloat(previousOperand);
   const num2 = parseFloat(currentOperand);
