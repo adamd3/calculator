@@ -37,7 +37,6 @@ function updateScreen() {
   previousScreen.textContent = `${previousOperand} ${operator}`;
 }
 
-
 function deleteDigit() {
   currentOperand = currentOperand.slice(0, -1);
   updateScreen();
@@ -102,6 +101,7 @@ buttons.forEach((button) => {
         applyOperator(target.dataset.value);
         break;
       case 'number':
+        if (currentOperand === '0') currentOperand = '';
         appendDigit(target.dataset.value);
         break;
     }
