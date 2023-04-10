@@ -94,10 +94,11 @@ document.addEventListener('keydown', e => {
   let key = e.key;
   if (key === 'Enter' || key === '=') key = '=';
   if (key === 'Backspace' || key === "Delete") key = 'del';
+  if (key === 'Escape') key = 'ac';
   const button = document.querySelector(`button[data-value="${key}"]`);
   if (button) {
     button.click();
-    button.blur(); 
+    // button.blur(); 
   }
 });
 
