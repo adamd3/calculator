@@ -40,7 +40,7 @@ function updateScreen() {
 }
 
 function deleteDigit() {
-  currentOperand = currentOperand.slice(0, -1);
+  currentOperand = currentOperand.toString().slice(0, -1);
   if (!currentOperand) currentOperand = '0';
   updateScreen();
 }
@@ -84,7 +84,7 @@ function evaluateExpression() {
     default:
       return;
   }
-  currentOperand = result;
+  currentOperand = result.toString();
   operator = '';
   previousOperand = '';
   updateScreen();
@@ -98,7 +98,6 @@ document.addEventListener('keydown', e => {
   const button = document.querySelector(`button[data-value="${key}"]`);
   if (button) {
     button.click();
-    // button.blur(); 
   }
 });
 
