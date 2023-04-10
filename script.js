@@ -1,6 +1,7 @@
 let currentOperand = '';
 let previousOperand = '';
 let operator = '';
+let result = '';
 
 const buttons = document.querySelectorAll('.button');
 const operators = document.querySelectorAll('button--operator');
@@ -31,12 +32,25 @@ function clearScreen() {
   currentOperand = '';
   previousOperand = '';
   operator = '';
+  result = '';
   screen.textContent = '0';
+  previousScreen.textContent = '';
 }
 
 function updateScreen() {
+  opFormat = operator.toString().replace(/\//g, '&divide;');
   screen.textContent = currentOperand;
-  previousScreen.textContent = `${previousOperand} ${operator}`;
+  if (result) {
+    previousScreen.innerHTML = `${previousOperand} ${opFormat} ${currentOperand} =`;
+    result = '';
+    // debugger;
+    // previousScreen.textContent = `${previousOperand} ${opFormat} ${currentOperand} = ${result}`;
+  } else {
+    previousScreen.innerHTML = `${previousOperand} ${opFormat}`;
+    // debugger;
+    // previousScreen.textContent = `${previousOperand} ${opFormat} ${currentOperand}`;
+  }
+  // previousScreen.textContent = `${previousOperand} ${operator}`;
 }
 
 function deleteDigit() {
@@ -64,7 +78,6 @@ function evaluateExpression() {
   const num1 = parseFloat(previousOperand);
   const num2 = parseFloat(currentOperand);
   if (isNaN(num1) || isNaN(num2)) return;
-  let result;
   switch (operator) {
     case '+':
       result = add(num1, num2);
@@ -83,9 +96,9 @@ function evaluateExpression() {
   }
   rounded = parseFloat(Number(result).toFixed(3));
   currentOperand = rounded.toString();
+  updateScreen();
   operator = '';
   previousOperand = '';
-  updateScreen();
 }
 
 document.addEventListener('keydown', e => {
