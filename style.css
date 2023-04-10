@@ -20,25 +20,15 @@ body {
 }
 
 .screen__output {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  height: 50px;
   margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
 }
 
 .screen__output--previous {
-  font-size: 14px;
+  font-size: 24px;
   color: #999;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.screen__output--current {
-  font-size: 32px;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .buttons {
