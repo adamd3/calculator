@@ -25,37 +25,33 @@ body {
 }
 
 .screen {
+  font-size: 3vw;
   padding: 10px;
-  background-color: #e6e6e6;
   border-radius: 10px;
   margin-bottom: 20px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  background-color: #e6e6e6;
   hyphens: auto;
-}
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: right;
 }
 
 .screen__output {
-  margin-bottom: 10px;
   font-size: 36px;
   font-weight: bold;
   color: #333;
 }
 
 .screen__output--previous {
-  grid-row: 1/2;
-  grid-column: 1/5;
-  text-align: right;
   font-size: 1.5rem;
   color: #999;
+  min-height: 32px;
 }
 
 .screen__output--current {
-  grid-row: 2/3;
-  grid-column: 1/5;
-  text-align: right;
   font-size: 2.5rem;
   color: #333;
+  min-height: 64px;
 }
 
 .buttons {
