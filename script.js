@@ -81,7 +81,8 @@ function evaluateExpression() {
     default:
       return;
   }
-  currentOperand = result.toString();
+  rounded = parseFloat(Number(result).toFixed(3));
+  currentOperand = rounded.toString();
   operator = '';
   previousOperand = '';
   updateScreen();
