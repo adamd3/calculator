@@ -78,9 +78,6 @@ function evaluateExpression() {
     case '/':
       result = divide(num1, num2);
       break;
-    case '%':
-      result = percent(num1, num2);
-      break;
     default:
       return;
   }
