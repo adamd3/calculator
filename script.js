@@ -41,16 +41,12 @@ function updateScreen() {
   opFormat = operator.toString().replace(/\//g, '&divide;');
   screen.textContent = currentOperand;
   if (result) {
-    previousScreen.innerHTML = `${previousOperand} ${opFormat} ${currentOperand} =`;
-    result = '';
-    // debugger;
-    // previousScreen.textContent = `${previousOperand} ${opFormat} ${currentOperand} = ${result}`;
+    previousScreen.innerHTML = `${
+      previousOperand} ${opFormat} ${currentOperand} =`;
+    result = '';  
   } else {
     previousScreen.innerHTML = `${previousOperand} ${opFormat}`;
-    // debugger;
-    // previousScreen.textContent = `${previousOperand} ${opFormat} ${currentOperand}`;
   }
-  // previousScreen.textContent = `${previousOperand} ${operator}`;
 }
 
 function deleteDigit() {
@@ -85,7 +81,7 @@ function evaluateExpression() {
     case '-':
       result = subtract(num1, num2);
       break;
-    case '*':
+    case '×':
       result = multiply(num1, num2);
       break;
     case '/':
@@ -103,6 +99,7 @@ function evaluateExpression() {
 
 document.addEventListener('keydown', e => {
   let key = e.key;
+  if (key === '*') key = '×';
   if (key === 'Enter' || key === '=') key = '=';
   if (key === 'Backspace' || key === "Delete") key = 'del';
   if (key === 'Escape') key = 'ac';
