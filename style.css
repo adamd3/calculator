@@ -51,8 +51,6 @@ body {
 .buttons__line {
   grid-column: 1 / -1;
   display: flex;
-  /* justify-content: space-between; */
-  margin-bottom: 10px;
 }
 
 .button {
@@ -86,10 +84,6 @@ body {
 .button[data-type="equals"] {
   color: #fff;
   background-color: #66cc66;
-}
-
-.button.button--zero {
-  grid-column: 1/3;
 }
 
 .button:hover {
