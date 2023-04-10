@@ -23,6 +23,10 @@ function divide(a, b) {
   return a / b;
 }
 
+function percent() {
+  currentOperand = parseFloat(currentOperand) / 100;
+}
+
 function clearScreen() {
   currentOperand = '';
   previousOperand = '';
@@ -36,7 +40,7 @@ function updateScreen() {
 }
 
 function deleteDigit() {
-  currentOperand = currentOperand.toString().slice(0, -1);
+  currentOperand = currentOperand.slice(0, -1);
   if (!currentOperand) currentOperand = '0';
   updateScreen();
 }
@@ -74,10 +78,13 @@ function evaluateExpression() {
     case '/':
       result = divide(num1, num2);
       break;
+    case '%':
+      result = percent(num1, num2);
+      break;
     default:
       return;
   }
-  currentOperand = result.toString();
+  currentOperand = result;
   operator = '';
   previousOperand = '';
   updateScreen();
@@ -85,11 +92,12 @@ function evaluateExpression() {
 
 document.addEventListener('keydown', e => {
   let key = e.key;
-  if (key === 'Enter') key = '=';
+  if (key === 'Enter' || key === '=') key = '=';
   if (key === 'Backspace' || key === "Delete") key = 'del';
   const button = document.querySelector(`button[data-value="${key}"]`);
   if (button) {
     button.click();
+    button.blur(); 
   }
 });
 
@@ -114,5 +122,6 @@ buttons.forEach((button) => {
         appendDigit(target.dataset.value);
         break;
     }
+    target.blur(); 
   });
 });
