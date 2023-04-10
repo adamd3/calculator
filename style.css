@@ -18,6 +18,10 @@ body {
   background-color: #e6e6e6;
   border-radius: 10px;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 }
 
 .screen__output {
