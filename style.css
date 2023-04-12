@@ -1,6 +1,17 @@
+:root {
+  --bg-color: #f2f2f2;
+  --font-family: 'Roboto', sans-serif;
+  --min-width: 320px;
+  --max-width: 320px;
+  --padding: 20px;
+  --border-radius: 20px;
+  --box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  --font-size: 3vw;
+}
+
 body {
-  background-color: #f2f2f2;
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
 }
 
 .main {
@@ -14,18 +25,18 @@ body {
 }
 
 .container {
-  min-width: 320px;
-  max-width: 320px;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px;
+  padding: var(--padding);
   background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   text-align: center;
 }
 
 .screen {
-  font-size: 3vw;
+  font-size: var(--font-size);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 20px;
